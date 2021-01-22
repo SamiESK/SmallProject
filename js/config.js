@@ -1,6 +1,6 @@
 const TITLE_STR = ' - Spira Contacts'
 
-var baseURL = 'http://' + 'samiesk.github.io/smallProject/';
+var baseURL = 'https://github.com/SamiESK/smallProject.git';
 var extension = 'php';
 var userID = 0;
 var firstName = "";
