@@ -3,9 +3,9 @@
 
     $inData = getRequestInfo();
 	
-	$id = 0;
+	  $id = 0;
     
-    $sql = "INSERT INTO user (Login, Password, FirstName, LastName) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO User (Login, Password, FirstName, LastName) VALUES (?,?,?,?)";
     $stmt= $conn->prepare($sql);
     
     $stmt->bind_param("ssss", 

@@ -38,11 +38,11 @@ $(document).ready(function () {
 
                 let login = $("#username").val();
                 let password = $("#password").val();
-                	var hash = md5( password );
+                //	var hash = md5( password );
 
                 $("#loginResult").html("");
 
-                	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+                //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
                 let obj = {
                     login: login,
                     password: password
@@ -121,11 +121,11 @@ $(document).ready(function () {
 
                 let login = $("#username1").val();
                 let password = $("#password1").val();
-                	var hash = md5( password );
+                //	var hash = md5( password );
 
                 $("#loginResult").html("");
 
-                	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+                //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 
                 let obj = {
                     login: login,

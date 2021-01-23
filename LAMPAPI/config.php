@@ -1,7 +1,7 @@
 <?php
 
 // Change login to work on Server
-$conn = new mysqli("localhost", "root", "", "cop4331");    
+$conn = new mysqli("localhost", "api", "TheBoysContacts", "SPIRA");    
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

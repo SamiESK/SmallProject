@@ -1,6 +1,6 @@
 <?php
     require_once("config.php");
-
+    
     $inData = getRequestInfo();
 
     $search = $inData["search"];

@@ -5,11 +5,9 @@
 
     $id = $inData["id"];
 
-    unset($inData->id);
-
     foreach($inData as $key => $value) {
-        if($value) {
-            mysqli_query($conn,"UPDATE contacts SET ". $key ." = '". $value ."' WHERE id = '". $id ."' LIMIT 1");
+        if($value && strcmp($key, $id) != 0) {
+            mysqli_query($conn,"UPDATE Contacts SET ". $key ." = '". $value ."' WHERE id = '". $id ."' LIMIT 1");
         }
     }
 

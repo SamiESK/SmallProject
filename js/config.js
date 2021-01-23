@@ -1,6 +1,6 @@
 const TITLE_STR = ' - Spira Contacts'
 
-var baseURL = 'https://github.com/SamiESK/smallProject.git';
+var baseURL = 'http://' + 'cop4331-theboys.xyz/LAMPAPI';
 var extension = 'php';
 var userID = 0;
 var firstName = "";

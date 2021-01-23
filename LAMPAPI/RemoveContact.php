@@ -3,7 +3,7 @@
 
     $inData = getRequestInfo();
 
-    $sql = "DELETE FROM contacts where id=?";
+    $sql = "DELETE FROM Contacts where id=?";
     $stmt= $conn->prepare($sql);
 
     $stmt->bind_param("i", $inData["contactID"]);
