@@ -123,9 +123,31 @@ $(document).ready(function () {
                 let password = $("#password1").val();
                 //	var hash = md5( password );
 
-                $("#loginResult").html("");
+                $("#signupResult").html("");
 
                 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+                
+                userExists = false;
+                
+                /*
+                $.ajax({
+                    type: "POST",
+                    url: baseURL + "/CheckUser.php",
+                    data: JSON.stringify({ login: $("#username1").val() }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType:"json",
+                    success: function(res)
+                    {
+                        //If username exists, set userExists to true
+                        userExists = res.exists;
+                    }
+                });
+                */
+
+                if (userExists) {
+                    $("#signupResult").html("Username is Already Taken");
+                    return;
+                }
 
                 let obj = {
                     login: login,
@@ -146,11 +168,6 @@ $(document).ready(function () {
                     let jsonObject = JSON.parse(xhr.responseText);
 
                     userID = jsonObject.id;
-
-                    if (userID < 1) {
-                        $("#signupResult").html("Username unavailable incorrect");
-                        return;
-                    }
 
                     window.location.href = "login.html";
                 } catch (err) {

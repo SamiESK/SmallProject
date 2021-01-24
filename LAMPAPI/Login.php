@@ -7,28 +7,20 @@
 	$firstName = "";
 	$lastName = "";
 
-	if ($conn->connect_error) 
+	$sql = "SELECT ID, FirstName, LastName FROM User where Login='" . $inData["login"] . "' and Password='" . $inData["password"] . "'";
+	
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0)
 	{
-		returnWithError( $conn->connect_error );
-	} 
+		$row = $result->fetch_assoc();
+		$firstName = $row["FirstName"];
+		$lastName = $row["LastName"];
+		$id = $row["ID"];
+		
+		returnWithInfo($firstName, $lastName, $id );
+	}
 	else
 	{
-		$sql = "SELECT ID, FirstName, LastName FROM User where Login='" . $inData["login"] . "' and Password='" . $inData["password"] . "'";
-		
-		$result = $conn->query($sql);
-		if ($result->num_rows > 0)
-		{
-			$row = $result->fetch_assoc();
-			$firstName = $row["FirstName"];
-			$lastName = $row["LastName"];
-			$id = $row["ID"];
-			
-			returnWithInfo($firstName, $lastName, $id );
-		}
-		else
-		{
-			returnWithError( "No Records Found" );
-		}
-		$conn->close();
+		returnWithError( "No Records Found" );
 	}
 ?>
