@@ -1,6 +1,6 @@
 const TITLE_STR = ' - Spira Contacts'
 
-var baseURL = 'http://' + 'cop4331-theboys.xyz/LAMPAPI';
+var baseURL = 'http://' + 'www.cop4331-theboys.xyz/LAMPAPI';
 var extension = 'php';
 var userID = 0;
 var firstName = "";
