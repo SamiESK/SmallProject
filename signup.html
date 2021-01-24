@@ -21,44 +21,50 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 mx-auto">
-                <div id="first">
+                <div id="second">
                     <div class="myform form ">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
-                                <h1>Login</h1>
+                                <h1>Signup</h1>
                             </div>
                         </div>
-                        <form action="" method="post" name="login">
+                        <form action="#" name="registration">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">First Name</label>
+                                <input type="text" name="firstname" class="form-control" id="firstname"
+                                    aria-describedby="emailHelp" placeholder="Enter First Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Last Name</label>
+                                <input type="text" name="lastname" class="form-control" id="lastname"
+                                    aria-describedby="emailHelp" placeholder="Enter Last Name">
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
-                                <input type="text" name="username" class="form-control" id="username"
+                                <input type="text" name="username1" class="form-control" id="username1"
                                     aria-describedby="emailHelp" placeholder="Enter Username">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
-                                <input type="password" name="password" id="password" class="form-control"
+                                <input type="password" name="password1" id="password1" class="form-control"
                                     aria-describedby="emailHelp" placeholder="Enter Password">
                             </div>
-                            <span id="loginResult" class="error"></span>
-                            <!--<div class="form-group">
-                                <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
-                            </div>-->
-                            <div class="col-md-12 text-center ">
-                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Confirm Password</label>
+                                <input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control"
+                                    aria-describedby="emailHelp" placeholder="Confirm Password">
+                            </div>
+                            <span id="signupResult" class="error"></span>
+                            <div class="col-md-12 text-center mb-3">
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Sign Up!</button>
                             </div>
                             <div class="col-md-12 ">
-                                <div class="login-or">
-                                    <hr class="hr-or">
-                                    <span class="span-or">or</span>
+                                <div class="form-group">
+                                    <p class="text-center"><a href="/login.html" id="signin">Already have an account?</a></p>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <p class="text-center">Don't have account? <a href="/signup.html" id="signup">Sign up here</a></p>
-                            </div>
-                        </form>
-
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -70,7 +76,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"  type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"  type="text/javascript"></script>
 
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
 
