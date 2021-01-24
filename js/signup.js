@@ -85,13 +85,16 @@ $(document).ready(function () {
                 xhr.open("POST", url, true);
                 xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
                 try {
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let jsonObject = JSON.parse(xhr.responseText);
+
+                            userID = jsonObject.id;
+
+                            window.location.href = "login.html";
+                        }
+                    };
                     xhr.send(jsonPayload);
-
-                    let jsonObject = JSON.parse(xhr.responseText);
-
-                    userID = jsonObject.id;
-
-                    window.location.href = "login.html";
                 } catch (err) {
                     $("#signupResult").html(err.message);
                 }
