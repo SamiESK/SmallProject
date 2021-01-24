@@ -15,12 +15,8 @@
     $result = $conn->query($sql);
 
     $searchResults = "";
-    if ($result->num_rows > 0) {
-        $searchResults = packageContactsAsJson($result);
-    }
-    else {
-        returnWithError( "No Records Found" );
-    }
+    
+    $searchResults = packageContactsAsJson($result);
 
     sendResultInfoAsJson( $searchResults );
 

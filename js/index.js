@@ -12,14 +12,16 @@ $(document).ready(function () {
     }
 
     let jsonPayload = JSON.stringify({
-        userID: userID
+        userID: userID,
+        search: ""
     });
-    let url = baseURL + '/GetContacts.' + extension;
+
+    let url = baseURL + '/SearchContacts.' + extension;
 
     let contactsList = '';
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, false);
+    xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
     try {
         xhr.onreadystatechange = function () {
