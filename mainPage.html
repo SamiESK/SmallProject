@@ -11,20 +11,23 @@
     <link href="css/stylesMain.css" rel="stylesheet">
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/addContact.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
-<title>Main Page</title>
+    <title>MainPage</title>
  </head>
  <body>
+   <!-- navBar code -->
    <section class="container-fluid background">
      <nav id="navBar"class="navbar navbar-light bg-light">
        <div class="container-fluid">
          <a class="navbar-brand">Spira Contact Manager</a>
           <form class="d-flex">
             <input id="searchBar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+      </div>
+    </nav>
+<!-- Add contact pop up-->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -37,27 +40,27 @@
           </div>
           <div class="modal-body">
             First Name
-            <input class="form-control">
+            <input id="addFirstName" class="form-control">
             Last Name
-            <input class="form-control">
+            <input id="addLastName" class="form-control">
             Phone #
-            <input class="form-control">
+            <input id="addPhoneNumber" class="form-control">
             Email Address
-            <input class="form-control">
+            <input id="addEmail" class="form-control">
           </div>
           <div class="modal-footer">
             <div class="col text-center">
-            <button id="addContactButton" type="button" class="btn btn-primary">Accept</button>
+            <button id="addContactButton" type="button" class="btn btn-primary" onclick="addContact();" data-dismiss="modal" data-target="#addContact">Accept</button>
           </div>
           </div>
-        </form>
+          </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<!-- edit contact pop up -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -88,7 +91,7 @@
     </div>
   </div>
 </div>
-
+<!-- table / header / box for table -->
 <div id="contact" class="container" style="height: 80%">
   <div class="card bg-default mt-5">
     <h3 class="card-header bg-light">My Contacts<button id="headerbutton"class="btn" data-toggle="modal" data-target="#addContact"
@@ -116,10 +119,9 @@
       </td>
     </tr>
 -->
-  </tbody>
-      </table>
-      </section>
-
+      </tbody>
+    </table>
+    </section>
 
  </body>
 </html>

@@ -1,12 +1,13 @@
 $(document).ready(function () {
-
+//This is a static array used to test the build funtion
   var myArray = [
       {'ID' : '1', 'name':'Michael', 'lname':'smith', 'number':'000000', 'email' : 'example@hotmain.com'},
       {'ID' : '2','name':'tom', 'lname':'higgins', 'number':'696969', 'email' : 'example2@hotmain.com'},
+      {'ID' : '3','name':'jerry', 'lname':'jones', 'number':'911', 'email' : 'example3@hotmain.com'},
   ]
 
   buildTable(myArray);
-
+//search should be called on click of the search bar button, it should take the input chars and the active user ID and send to backend
   function search()
   {
     var searchResult = document.getElementById("searchBar").value;
@@ -38,7 +39,7 @@ $(document).ready(function () {
         $("#contactsList").html(err.message);
     }
   }
-
+//funtion to build the table in html and display
   function buildTable(data){
     var table = document.getElementById('contactsTable')
 
