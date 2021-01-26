@@ -19,6 +19,12 @@
         //$inData["zip"],
         $inData["userID"]
     );
-    sendResultInfoAsJson(json_encode($inData));
-    $stmt->execute();
+
+    if ($stmt->execute()) {
+        $inData['error'] = "";
+        sendResultInfoAsJson(json_encode($inData));
+    } else {
+        $inData['error'] = "Error in AddContact: Failed to update database";
+        sendResultInfoAsJson(json_encode($inData));
+    }
 ?>

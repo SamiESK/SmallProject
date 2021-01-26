@@ -8,7 +8,11 @@
 
     $stmt->bind_param("i", $inData["contactID"]);
 
-    sendResultInfoAsJson(json_encode($inData));
-
-    $stmt->execute();
+    if ($stmt->execute()) {
+        $inData['error'] = "";
+        sendResultInfoAsJson(json_encode($inData));
+    } else {
+        $inData['error'] = "Error in RemoveContact: Failed to update database";
+        sendResultInfoAsJson(json_encode($inData));
+    }
 ?>
