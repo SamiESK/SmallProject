@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
 
     let contactsList = '';
-
+    let url = baseURL + '/SearchContacts.' + extension;
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");

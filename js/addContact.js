@@ -7,8 +7,8 @@
      var addEmail = document.getElementById("addEmail").value;
 
      let jsonPayload = JSON.stringify({
-         firstname: addFirstName,
-         lastname: addLastName,
+         firstName: addFirstName,
+         lastName: addLastName,
          phone: addPhoneNumber,
          email: addEmail,
          userID: 0,
@@ -16,5 +16,9 @@
 
      console.log(jsonPayload);
 
-     
+     let url = baseURL + '/AddContact.' + extension;
+     let xhr = new XMLHttpRequest();
+     xhr.open("POST", url, true);
+     xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+   	 xhr.send(jsonPayload);
   }
