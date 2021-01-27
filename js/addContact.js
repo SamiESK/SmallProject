@@ -13,8 +13,6 @@ function addContact()
          userID: 0,
      });
 
-     console.log(jsonPayload);
-
      let url = baseURL + '/AddContact.' + extension;
      let xhr = new XMLHttpRequest();
      xhr.open("POST", url, true);
