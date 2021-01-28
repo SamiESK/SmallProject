@@ -12,6 +12,7 @@
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/addContact.js"></script>
+    <script type="text/javascript" src="js/delete.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
     <title>MainPage</title>
  </head>
@@ -50,7 +51,7 @@
           </div>
           <div class="modal-footer">
             <div class="col text-center">
-            <button id="addContactButton" type="button" class="btn btn-primary" onclick="addContact();" data-dismiss="modal" data-target="#addContact">Accept</button>
+            <button id="addContactButton" type="button" class="btn btn-primary" onclick="addContact();" data-dismiss="modal" data-target="#addContact">Add</button>
           </div>
           </div>
           </form>
@@ -79,10 +80,12 @@
             <input class="form-control">
             Email Address
             <input class="form-control">
+            Contact ID
+            <input class="form-control">
           </div>
           <div class="modal-footer">
             <div class="col text-center">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#editContact">Accept</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#editContact">Edit</button>
           </div>
           </div>
           </div>
@@ -91,10 +94,36 @@
     </div>
   </div>
 </div>
+<!--Pop up box for deleting a contact -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="modal fade" id="deleteContact">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          <div class="modal-header">
+            <h1>Delete Contact</h1>
+          </div>
+          <div class="modal-body">
+            Contact ID
+            <input id ="deleteTextBox" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <div class="col text-center">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#deleteContact" onclick="deleteContact();">Delete</button>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- table / header / box for table -->
 <div id="contact" class="container" style="height: 80%">
   <div class="card bg-default mt-5">
-    <h3 class="card-header bg-light">My Contacts<button id="headerbutton"class="btn" data-toggle="modal" data-target="#addContact"
+    <h3 class="card-header bg-light">My Contacts<button id="headerEditButton" type="button" class="btn" data-toggle="modal" data-target="#editContact"><span style="color: gray"class="fas fa-cog"></span></button> <button id="headerDeleteButton" type="button" class="btn" data-toggle="modal" data-target="#deleteContact"><span style="color: tomato"class="fas fa-trash-alt"></span></button><button id="headerbutton"class="btn" data-toggle="modal" data-target="#addContact"
       style="height: 40px; margin-bottom: 20px;"><span style="color: Dodgerblue;"class="fas fa-plus-circle"></span></button></h3>
     <div class="card-body">
       <table class="table table-default table striped">
@@ -105,7 +134,6 @@
             <th scope="col">Last Name</th>
             <th scope="col">Phone # </th>
             <th scope="col">Email </th>
-            <th class="col">Funtions</th>
           </tr>
         </thead>
         <tbody id="contactsTable">

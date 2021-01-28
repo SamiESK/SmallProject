@@ -9,7 +9,6 @@ function buildTable(data, numContacts){
             <td>${data[i].LastName}</td>
             <td>${data[i].Phone}</td>
             <td>${data[i].Email}</td>
-            <td><button type="button" class="btn" data-toggle="modal" data-target="#editContact"><span style="color: gray"class="fas fa-cog"></span></button><button type="button" class="btn" data-toggle="modal" data-target="#"><span style="color: tomato"class="fas fa-trash-alt"></span></button></td>
           </tr>`
     table.innerHTML += row
   }
