@@ -15,6 +15,7 @@ function buildTable(data, numContacts){
 }
   function searchFuntion()
   {
+    readCookie();
     var searchResult = document.getElementById("searchBar").value;
     var numContacts = '';
     let parse = '';

@@ -1,5 +1,7 @@
 function addContact()
   {
+      readCookie();
+
      var addFirstName = document.getElementById("addFirstName").value;
      var addLastName = document.getElementById("addLastName").value;
      var addPhoneNumber = document.getElementById("addPhoneNumber").value;
@@ -10,7 +12,7 @@ function addContact()
          lastName: addLastName,
          phone: addPhoneNumber,
          email: addEmail,
-         userID: 0,
+         userID: userID,
      });
 
      let url = baseURL + '/AddContact.' + extension;
