@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/addContact.js"></script>
     <script type="text/javascript" src="js/delete.js"></script>
+    <script type="text/javascript" src="js/editContact.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
     <title>MainPage</title>
  </head>
@@ -73,19 +74,19 @@
           </div>
           <div class="modal-body">
             First Name
-            <input class="form-control">
+            <input id="editFirstName" class="form-control">
             Last Name
-            <input class="form-control">
+            <input id="editLastName" class="form-control">
             Phone #
-            <input class="form-control">
+            <input id="editPhoneNumber" class="form-control">
             Email Address
-            <input class="form-control">
+            <input id="editEmail" class="form-control">
             Contact ID
-            <input class="form-control">
+            <input id="contactID" class="form-control">
           </div>
           <div class="modal-footer">
             <div class="col text-center">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#editContact">Edit</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#editContact" onclick="editContact();">Edit</button>
           </div>
           </div>
           </div>

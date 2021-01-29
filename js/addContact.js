@@ -1,6 +1,6 @@
 function addContact()
   {
-      readCookie();
+    readCookie();
 
      var addFirstName = document.getElementById("addFirstName").value;
      var addLastName = document.getElementById("addLastName").value;
