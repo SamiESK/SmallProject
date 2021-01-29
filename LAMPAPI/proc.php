@@ -23,7 +23,7 @@
     $sql = "SELECT ID FROM User where Login='" . $inData["login"] . "' and Password='" . $inData["password"] . "'";
 
     $result = $conn->query($sql);
-    if ($result->num_rows > 0)
+    elseif ($result->num_rows > 0)
     {
         $row = $result->fetch_assoc();
         $id = $row["ID"];
