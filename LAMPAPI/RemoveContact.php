@@ -3,10 +3,10 @@
 
     $inData = getRequestInfo();
 
-    $sql = "DELETE FROM Contacts where id=?";
+    $sql = "DELETE FROM Contacts where (id=? AND UserID=?)";
     $stmt= $conn->prepare($sql);
 
-    $stmt->bind_param("i", $inData["contactID"]);
+    $stmt->bind_param("ii", $inData["contactID"], $inData["userID"]);
 
     if ($stmt->execute()) {
         $inData['error'] = "";
