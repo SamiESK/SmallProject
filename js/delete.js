@@ -1,10 +1,12 @@
 function deleteContact()
 {
+  readCookie();
   var deleteTextBox = document.getElementById("deleteTextBox").value;
 
 
   let jsonPayload = JSON.stringify({
       contactID: deleteTextBox,
+      userID: userID,
   });
 
 console.log(jsonPayload)

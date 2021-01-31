@@ -1,5 +1,6 @@
   function editContact(){
 
+    readCookie();
     var editFirstName = document.getElementById("editFirstName").value;
     var editLastName = document.getElementById("editLastName").value;
     var editPhoneNumber = document.getElementById("editPhoneNumber").value;
@@ -13,6 +14,7 @@
         phone: editPhoneNumber,
         email: editEmail,
         contactID: editContactID,
+        userID: userID,
     });
     console.log(jsonPayload);
     let url = baseURL + '/UpdateContact.' + extension;
