@@ -15,7 +15,7 @@ $(document).ready(function () {
                 username: "Please enter a valid email address",
 
                 password: {
-                    required: "Please enter password",
+                    required: "Please enter your password",
                 },
             },
             submitHandler: function (form) {
@@ -26,13 +26,12 @@ $(document).ready(function () {
 
                 let login = $("#username").val();
                 let password = $("#password").val();
-                //	var hash = md5( password );
 
                 $("#loginResult").html("");
 
-                //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
                 let obj = {
                     login: login,
+                    // password: md5(password)
                     password: password
                 };
                 let jsonPayload = JSON.stringify(obj);
@@ -51,7 +50,7 @@ $(document).ready(function () {
                             userID = jsonObject.id;
         
                             if (userID < 1) {
-                                $("#loginResult").html("User/Password combination incorrect");
+                                $("#loginResult").html("User/Password combination is incorrect");
                                 return;
                             }
         
