@@ -42,8 +42,8 @@ $(document).ready(function () {
                 lastName = $("#lastname").val();
 
                 let login = $("#username1").val();
-                let password = $("#password1").val();
-                //	var hash = md5( password );
+                // let password = $("#password1").val();
+                let password = md5($("#password1").val());
 
                 $("#signupResult").html("");
 
@@ -70,7 +70,6 @@ $(document).ready(function () {
                 }
 
                 checkUser().then(function (data) {
-                    alert(data);
                     userExists = data;
 
                     if (userExists) {

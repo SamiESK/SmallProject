@@ -31,8 +31,8 @@ $(document).ready(function () {
 
                 let obj = {
                     login: login,
-                    // password: md5(password)
-                    password: password
+                    password: md5(password)
+                    // password: password
                 };
                 let jsonPayload = JSON.stringify(obj);
 
