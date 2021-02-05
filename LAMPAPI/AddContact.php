@@ -3,8 +3,6 @@
 
     $inData = getRequestInfo();
 
-    //$sql = "INSERT INTO contacts (FirstName, LastName, Phone, Email, Address, City, State, Zip, userID) VALUES (?,?,?,?,?,?,?,?,?)";
-
     $sql = "INSERT INTO Contacts (FirstName, LastName, Phone, Email, UserID) VALUES (?,?,?,?,?)";
     $stmt= $conn->prepare($sql);
     
@@ -13,10 +11,6 @@
         $inData["lastName"],
         $inData["phone"],
         $inData["email"],
-        //$inData["address"],
-        //$inData["city"],
-        //$inData["state"],
-        //$inData["zip"],
         $inData["userID"]
     );
 

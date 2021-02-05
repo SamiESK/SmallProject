@@ -17,7 +17,7 @@
         $lastName = $row["LastName"];
         $id = $row["ID"];
         
-        returnWithInfo($firstName, $lastName, $id );
+        returnWithInfo($firstName, $lastName, $id);
     }
     else
     {

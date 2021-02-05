@@ -1,18 +1,10 @@
 <?php
 
-// Change login to work on Server
 $conn = new mysqli("localhost", "api", "TheBoysContacts", "SPIRA");    
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-
-/*
-if ($conn->connect_error) 
-{
-    returnWithError( $conn->connect_error );
-} 
-*/
 
 function getRequestInfo()
 {
@@ -30,14 +22,16 @@ function packageContactsAsJson($contacts)
 
         $searchCount++;
 
-        $searchResults .= '{';
-        foreach($row as $key => $value) {
-            if($value && strcmp($key, 'UserID')  != 0) {
-                $searchResults .= '"' . $key . '":"' . $value . '",';
-            }
-        }
-        $searchResults = rtrim($searchResults, ',');
-        $searchResults .= "}";            
+        $obj = (object) array(
+            "ID" => $row["ID"],
+            "DateCreated" => $row["DateCreated"],
+            "FirstName" => $row["FirstName"],
+            "LastName" => $row["LastName"],
+            "Phone" => $row["Phone"],
+            "Email" => $row["Email"]
+        );
+
+        $searchResults .= json_encode($obj);
     }
     return '{"contacts" :[ ' . $searchResults . "]}";
 }
