@@ -73,7 +73,7 @@ $(document).ready(function () {
                     userExists = data;
 
                     if (userExists) {
-                        $("#signupResult").html("Username is already taken");
+                        $("#usernameCheck").html("Username is already taken");
                         return;
                     }
 

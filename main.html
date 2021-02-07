@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-  <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link href="css/stylesMain.css" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/addContact.js"></script>
@@ -16,141 +26,162 @@
     <script type="text/javascript" src="js/editContact.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
     <title>MainPage</title>
- </head>
- <body>
-   <!-- navBar code -->
-   <section class="container-fluid background">
-     <nav id="navBar"class="navbar navbar-light bg-light">
-       <div class="container-fluid">
-         <a class="navbar-brand">Spira Contact Manager</a>
-          <form class="d-flex">
-            <input id="searchBar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark" type="button" onclick="searchFuntion();">Search</button>
-          </form>
-      </div>
-    </nav>
-<!-- Add contact pop up-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="modal fade" id="addContact">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h1>Add Contact</h1>
-          <form>
-          </div>
-          <div class="modal-body">
-            First Name
-            <input id="addFirstName" class="form-control">
-            Last Name
-            <input id="addLastName" class="form-control">
-            Phone #
-            <input id="addPhoneNumber" class="form-control">
-            Email Address
-            <input id="addEmail" class="form-control">
-          </div>
-          <div class="modal-footer">
-            <div class="col text-center">
-            <button id="addContactButton" type="button" class="btn btn-primary" onclick="addContact();" data-dismiss="modal" data-target="#addContact">Add</button>
-          </div>
-          </div>
-          </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- edit contact pop up -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="modal fade" id="editContact">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h1>Edit Contact</h1>
-          </div>
-          <div class="modal-body">
-            First Name
-            <input id="editFirstName" class="form-control">
-            Last Name
-            <input id="editLastName" class="form-control">
-            Phone #
-            <input id="editPhoneNumber" class="form-control">
-            Email Address
-            <input id="editEmail" class="form-control">
-            Contact ID
-            <input id="contactID" class="form-control">
-          </div>
-          <div class="modal-footer">
-            <div class="col text-center">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#editContact" onclick="editContact();">Edit</button>
-          </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--Pop up box for deleting a contact -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="modal fade" id="deleteContact">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          <div class="modal-header">
-            <h1>Delete Contact</h1>
-          </div>
-          <div class="modal-body">
-            Contact ID
-            <input id ="deleteTextBox" class="form-control">
-          </div>
-          <div class="modal-footer">
-            <div class="col text-center">
-            <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#deleteContact" onclick="deleteContact();">Delete</button>
-          </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</head>
 
-<!-- table / header / box for table -->
-<div id="contact" class="container" style="height: 80%">
-  <div class="card bg-default mt-5">
-    <h3 class="card-header bg-light">My Contacts<button id="headerEditButton" type="button" class="btn" data-toggle="modal" data-target="#editContact"><span style="color: gray"class="fas fa-cog"></span></button> <button id="headerDeleteButton" type="button" class="btn" data-toggle="modal" data-target="#deleteContact"><span style="color: tomato"class="fas fa-trash-alt"></span></button><button id="headerbutton"class="btn" data-toggle="modal" data-target="#addContact"
-      style="height: 40px; margin-bottom: 20px;"><span style="color: Dodgerblue;"class="fas fa-plus-circle"></span></button></h3>
-    <div class="card-body">
-      <table class="table table-default table striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Phone # </th>
-            <th scope="col">Email </th>
-          </tr>
-        </thead>
-        <tbody id="contactsTable">
-<!--    <tr>
-      <td>Craig</td>
-      <td>Baron</td>
-      <td>0000000</td>
-      <td>example@hotmail.com</td>
-      <td><button type="button" class="btn" data-toggle="modal" data-target="#editContact"><span style="color: gray"class="fas fa-cog"></span></button>
-          <button type="button" class="btn" data-toggle="modal" data-target="#"><span style="color: tomato"class="fas fa-trash-alt"></span></button>
-      </td>
-    </tr>
--->
-      </tbody>
-    </table>
+<body>
+    <!-- navBar code -->
+    <section class="container-fluid background">
+        <nav id="navBar" class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Spira Contact Manager</a>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="button" onclick="doLogout();">Logout</button>
+                </form>
+            </div>
+        </nav>
+
+        <!-- Add contact pop up-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="modal fade" id="addContact">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1>Add Contact</h1>
+                                </div>
+                                <form id="addForm">
+                                    <div class="modal-body">
+                                        <input id="addFirstName" class="form-control" placeholder="First Name">
+                                        <br>
+                                        <input id="addLastName" class="form-control" placeholder="Last Name">
+                                        <br>
+                                        <input id="addPhoneNumber" class="form-control" placeholder="Phone #">
+                                        <br>
+                                        <input id="addEmail" class="form-control" placeholder="Email Address">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="col text-center">
+                                            <button id="addButton" type="button" class="btn btn-primary"
+                                                onclick="addContact();" data-dismiss="modal"
+                                                data-target="#addContact">Add</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- edit contact pop up -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="modal fade" id="editContact">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1>Edit Contact</h1>
+                                </div>
+                                <form id="editForm">
+                                    <div class="modal-body">
+                                        <input id="editFirstName" class="form-control" placeholder="First Name">
+                                        <br>
+                                        <input id="editLastName" class="form-control" placeholder="Last Name">
+                                        <br>
+                                        <input id="editPhoneNumber" class="form-control" placeholder="Phone #">
+                                        <br>
+                                        <input id="editEmail" class="form-control" placeholder="Email Address">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="col text-center">
+                                            <button type="button" id="editButton" class="btn btn-primary"
+                                                data-dismiss="modal" data-target="#editContact">Edit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Pop up box for deleting a contact
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="modal fade" id="deleteContact">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1>Delete Contact</h1>
+                                </div>
+                                <div class="modal-body">
+                                    Contact ID
+                                    <input id="deleteTextBox" class="form-control">
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col text-center">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            data-target="#deleteContact" onclick="deleteContact();">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- Search Bar -->
+        <div id="search" class="container">
+            <div class="bg-none p-5 searchInner">
+                <!-- Custom rounded search bars with input group -->
+                <div id="searchDiv">
+                    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                        <div class="input-group">
+                            <input id="searchBar" class="form-control border-0 bg-light" type="search"
+                                placeholder="Who're you searching for?" aria-label="Search">
+                            <div class="input-group-append">
+                                <button type="button" id="searchBtn" class="btn btn-link text-primary"
+                                    onclick="searchFuntion();"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- table / header / box for table -->
+        <div id="contact" class="container" style="height: 80%">
+            <div class="card bg-default mt-5">
+                <h3 class="card-header bg-light">My Contacts
+                    <button id="headerbutton" class="btn" data-toggle="modal" data-target="#addContact"
+                        style="height: 40px; margin-bottom: 20px;"><span style="color: Dodgerblue;"
+                            class="fas fa-plus-circle"></span></button></h3>
+                <div class="card-body">
+                    <table class="table table-default table striped table-hover">
+                        <thead>
+                            <tr>
+                                <!-- <th scope="col">ID</th> -->
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Phone # </th>
+                                <th scope="col">Email </th>
+                                <th scope="col">Actions </th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactsTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
+</body>
 
- </body>
 </html>

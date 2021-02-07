@@ -1,18 +1,46 @@
-function deleteContact()
-{
-  readCookie();
-  var deleteTextBox = document.getElementById("deleteTextBox").value;
+/*
+function deleteContact() {
+    readCookie();
+    var deleteTextBox = document.getElementById("deleteTextBox").value;
 
 
-  let jsonPayload = JSON.stringify({
-      contactID: deleteTextBox,
-      userID: userID,
-  });
+    let jsonPayload = JSON.stringify({
+        contactID: deleteTextBox,
+        userID: userID,
+    });
 
-console.log(jsonPayload)
-  let url = baseURL + '/RemoveContact.' + extension;
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-  xhr.send(jsonPayload);
+    console.log(jsonPayload)
+    let url = baseURL + '/RemoveContact.' + extension;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    xhr.send(jsonPayload);
+}
+*/
+
+// delete the contact with confirmation and refresh search list
+function deleteContact1(contactID, firstName, lastName) {
+    if (confirm("Are you sure you want to delete " + firstName + " " + lastName + "?")) {
+        readCookie();
+        console.log(contactID);
+        let jsonPayload = JSON.stringify({
+            contactID: contactID,
+            userID: userID,
+        });
+
+        let url = baseURL + '/RemoveContact.' + extension;
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try {
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    searchFuntion();
+                }
+            };
+            xhr.send(jsonPayload);
+        } catch (err) {
+            $("#contactsList").html(err.message);
+        }
+    }
 }
