@@ -57,7 +57,7 @@ function editContact1(editContactID, firstName, lastName, phone, email) {
         let jsonPayload = JSON.stringify({
             firstName: editFirstName,
             lastName: editLastName,
-            phone: editPhoneNumber,
+            phone: editPhoneNumber.replace(/\D/g, ''),
             email: editEmail,
             contactID: editContactID,
             userID: userID,

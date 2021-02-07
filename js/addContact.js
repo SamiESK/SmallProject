@@ -22,7 +22,7 @@ function addContact() {
         let jsonPayload = JSON.stringify({
             firstName: addFirstName,
             lastName: addLastName,
-            phone: addPhoneNumber,
+            phone: addPhoneNumber.replace(/\D/g, ''),
             email: addEmail,
             userID: userID,
         });
