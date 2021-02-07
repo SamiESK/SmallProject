@@ -75,6 +75,7 @@ function editContact2(editContactID) {
             if (this.readyState == 4 && this.status == 200) {
                 searchFuntion();
                 // clears form after submission
+                $('#editContact').modal("toggle");
                 $('#editForm').each(function () {
                     this.reset();
                 });
