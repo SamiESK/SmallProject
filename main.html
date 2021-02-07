@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -18,7 +19,10 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <link id="dark-theme-style" rel="stylesheet" />
+
     <script type="text/javascript" src="js/config.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/addContact.js"></script>
@@ -36,6 +40,9 @@
                 <a class="navbar-brand">Spira Contact Manager</a>
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="button" onclick="doLogout();">Logout</button>
+                    <span>&nbsp;</span>
+                    <a href="javascript:void(0)" class="btn btn-outline-dark ml-auto font-weight-bold"
+                        id="theme-toggler" onclick="toggleTheme()"></a>
                 </form>
             </div>
         </nav>
@@ -65,8 +72,7 @@
                                     <div class="modal-footer">
                                         <div class="col text-center">
                                             <button id="addButton" type="button" class="btn btn-primary"
-                                                onclick="addContact();" data-dismiss="modal"
-                                                data-target="#addContact">Add</button>
+                                                onclick="addContact();">Add</button>
                                         </div>
                                     </div>
                                 </form>
@@ -88,7 +94,8 @@
                                 </div>
                                 <form id="editForm">
                                     <div class="modal-body">
-                                        <input id="editFirstName" class="form-control"  required placeholder="First Name">
+                                        <input id="editFirstName" class="form-control" required
+                                            placeholder="First Name">
                                         <br>
                                         <input id="editLastName" class="form-control" required placeholder="Last Name">
                                         <br>
@@ -100,8 +107,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <div class="col text-center">
-                                            <button type="button" id="editButton" class="btn btn-primary"
-                                                data-dismiss="modal" data-target="#editContact">Edit</button>
+                                            <button type="button" id="editButton" class="btn btn-primary">Edit</button>
                                         </div>
                                     </div>
                                 </form>
@@ -174,8 +180,8 @@
                                 <!-- <th scope="col">ID</th> -->
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
-                                <th scope="col">Phone # </th>
                                 <th scope="col">Email </th>
+                                <th scope="col">Phone # </th>
                                 <th scope="col">Actions </th>
                             </tr>
                         </thead>
@@ -186,6 +192,8 @@
             </div>
         </div>
     </section>
+
+    <script src="js/darkmode.js"></script>
 </body>
 
 </html>

@@ -56,8 +56,8 @@ function buildTable1(data, numContacts) {
         var row = `<tr>
           <td>${data[i].FirstName}</td>
           <td>${data[i].LastName}</td>
-          <td>${phoneNum}</td>
           <td>${data[i].Email}</td>
+          <td>${phoneNum}</td>
           <td><button type='button' class='btn' data-toggle='modal' onclick="deleteContact1(${data[i].ID}, '${data[i].FirstName}', '${data[i].LastName}');"><span style='color: tomato' class='fas fa-trash-alt'></span></button>
           <button type='button' class='btn' data-toggle='modal' data-target="#editContact" onclick="editContact1(${data[i].ID}, '${data[i].FirstName}', '${data[i].LastName}', '${data[i].Phone}', '${data[i].Email}');"><span style='color: gray' class='fas fa-cog'></span></button></td>
           </tr>`
