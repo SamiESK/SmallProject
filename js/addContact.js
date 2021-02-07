@@ -3,9 +3,20 @@ function addContact() {
     var addLastName = $("#addLastName").val();
     var addPhoneNumber = $("#addPhoneNumber").val();
     var addEmail = $("#addEmail").val();
-
+    $("#checkEmail").html("");
+    $("#checkPhone").html("");
     // make sure there is no empty string
     if (addFirstName && addLastName && addPhoneNumber && addEmail) {
+        if (!validateEmail(addEmail)) {
+            $("#checkEmail").html("Invalid Email Address");
+        }
+        if (!validatePhone(addPhoneNumber)) {
+            $("#checkPhone").html("Invalid Phone Number");
+        }
+        if (!validatePhone(addPhoneNumber) || !validateEmail(addEmail)) {
+            return;
+        }
+
         readCookie();
     
         let jsonPayload = JSON.stringify({

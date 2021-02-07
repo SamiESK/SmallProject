@@ -44,3 +44,42 @@ function doLogout() {
     document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
     window.location.href = "index.html";
 }
+
+function refreshSearchTable(xhr) {
+    try {
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                searchFuntion();
+            }
+        };
+        xhr.send(jsonPayload);
+    } catch (err) {
+        $("#contactsList").html(err.message);
+    }
+}
+
+function validatePhone(str) {
+    let clean = str.replace(/\D/g,'');
+    let phoneno = /^\d{10}$/;
+    if (clean.match(phoneno)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function formatPhoneNumber(str) {
+    let cleaned = ('' + str).replace(/\D/g, '');
+    let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        let intlCode = (match[1] ? '+1 ' : '');
+        return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
+    }
+    return null;
+}
+
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}

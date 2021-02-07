@@ -34,12 +34,25 @@ function editContact1(editContactID, firstName, lastName, phone, email) {
     $("#editPhoneNumber").val(phone);
     $("#editEmail").val(email);
 
+    $("#checkEmail2").html("");
+    $("#checkPhone2").html("");
+
     $("#editButton").on("click", function () {
         readCookie();
         let editFirstName = $("#editFirstName").val();
         let editLastName = $("#editLastName").val();
         let editPhoneNumber = $("#editPhoneNumber").val();
         let editEmail = $("#editEmail").val();
+
+        if (!validateEmail(editEmail)) {
+            $("#checkEmail2").html("Invalid Email Address");
+        }
+        if (!validatePhone(editPhoneNumber)) {
+            $("#checkPhone2").html("Invalid Phone Number");
+        }
+        if (!validatePhone(editPhoneNumber) || !validateEmail(editEmail)) {
+            return;
+        }
 
         let jsonPayload = JSON.stringify({
             firstName: editFirstName,
