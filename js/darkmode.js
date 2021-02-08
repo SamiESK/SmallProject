@@ -50,11 +50,17 @@ function toggleTheme() {
 function enableDarkTheme() {
     DARK_STYLE_LINK.setAttribute("href", DARK_THEME_PATH);
     DARK_FIX_LINK.setAttribute("href", DARK_FIX_PATH);
-    THEME_TOGGLER.innerHTML = "Light"; //🌞
+    var page = window.location.pathname.split("/").pop();
+    if (page === "main.html") {
+        THEME_TOGGLER.innerHTML = "Light"; //🌞
+    }
 }
 
 function disableDarkTheme() {
     DARK_STYLE_LINK.setAttribute("href", "");
     DARK_FIX_LINK.setAttribute("href", "");
-    THEME_TOGGLER.innerHTML = "Dark"; // 🌙
+    var page = window.location.pathname.split("/").pop();
+    if (page === "main.html") {
+        THEME_TOGGLER.innerHTML = "Dark"; // 🌙
+    }
 }
