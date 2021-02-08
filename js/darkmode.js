@@ -30,6 +30,8 @@ function toggleTheme() {
     if (isDark) {
         enableDarkTheme();
         $('#searchBar').attr('style', 'color: #ffff');
+        $('h3.card-header').css('font-size', '1.75rem');
+        $('h1').css('font-size', '2.5rem');
     } else {
         disableDarkTheme();
         $('#searchBar').attr('style', '');
@@ -42,10 +44,10 @@ function toggleTheme() {
 
 function enableDarkTheme() {
     DARK_STYLE_LINK.setAttribute("href", DARK_THEME_PATH);
-    THEME_TOGGLER.innerHTML = "Light"; //🌞 
+    THEME_TOGGLER.innerHTML = "Light"; //🌞
 }
 
 function disableDarkTheme() {
     DARK_STYLE_LINK.setAttribute("href", "");
-    THEME_TOGGLER.innerHTML = "Dark"; // 🌙 
+    THEME_TOGGLER.innerHTML = "Dark"; // 🌙
 }
