@@ -1,6 +1,6 @@
 const TITLE_STR = ' - Spira Contact Manager'
 
-var baseURL = 'http://' + window.location.hostname + '/LAMPAPI';
+var baseURL = 'http://' + window.location.hostname + '/API';
 var extension = 'php';
 var userID = 0;
 var firstName = "";
