@@ -1,4 +1,4 @@
-const TITLE_STR = ' - Spira Contacts'
+const TITLE_STR = ' - Spira Contact Manager'
 
 var baseURL = 'http://' + window.location.hostname + '/LAMPAPI';
 var extension = 'php';

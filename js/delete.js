@@ -35,7 +35,14 @@ function deleteContact1(contactID, firstName, lastName) {
         try {
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    searchFuntion();
+                    let jsonObject = JSON.parse(xhr.responseText);
+
+                    if (jsonObject.error) {
+                        toastr.error("Failed to Remove " + firstName + " " + lastName + " from Contacts List.");
+                    } else {
+                        toastr.success("Removed " + firstName + " " + lastName + " from Contacts List!");
+                        // searchFuntion();
+                    }
                 }
             };
             xhr.send(jsonPayload);

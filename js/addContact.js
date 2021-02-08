@@ -18,7 +18,7 @@ function addContact() {
         }
 
         readCookie();
-    
+
         let jsonPayload = JSON.stringify({
             firstName: addFirstName,
             lastName: addLastName,
@@ -26,28 +26,35 @@ function addContact() {
             email: addEmail,
             userID: userID,
         });
-    
+
         let url = baseURL + '/AddContact.' + extension;
         let xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-    
+
         try {
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    $('#addContact').modal("toggle");
-                    searchFuntion();
+                    let jsonObject = JSON.parse(xhr.responseText);
+
+                    if (jsonObject.error) {
+                        toastr.error("Failed to Add " + addFirstName + " " + addLastName + " to Contacts List.");
+                    } else {
+                        toastr.success("Added " + addFirstName + " " + addLastName + " to Contacts List!");
+                        $('#addContact').modal("toggle");
+                        // searchFuntion();
+                    }
                 }
             };
             xhr.send(jsonPayload);
         } catch (err) {
             $("#contactsList").html(err.message);
         }
-    
+
         // clears form after submission
         $('#addForm').each(function () {
             this.reset();
         });
     }
-    
+
 }

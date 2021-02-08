@@ -34,7 +34,7 @@ function editContact1(editContactID, firstName, lastName, phone, email) {
     $("#editPhoneNumber").val(phone);
     $("#editEmail").val(email);
 
-    $("#editButton").attr("onclick","editContact2(" + editContactID + ")");
+    $("#editButton").attr("onclick", "editContact2(" + editContactID + ")");
 
     $("#checkEmail2").html("");
     $("#checkPhone2").html("");
@@ -73,12 +73,20 @@ function editContact2(editContactID) {
     try {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                searchFuntion();
-                // clears form after submission
-                $('#editContact').modal("toggle");
-                $('#editForm').each(function () {
-                    this.reset();
-                });
+                let jsonObject = JSON.parse(xhr.responseText);
+
+                if (jsonObject.error) {
+                    toastr.error("Failed to Update Contact.");
+                } else {
+                    toastr.success("Updated Contact!");
+                    // clears form after submission
+                    $('#editContact').modal("toggle");
+                    $('#editForm').each(function () {
+                        this.reset();
+                    });
+
+                    // searchFuntion();
+                }
             }
         };
         xhr.send(jsonPayload);
