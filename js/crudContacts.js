@@ -45,6 +45,11 @@ function addContact() {
                 if (this.readyState == 4 && this.status == 200) {
                     let jsonObject = JSON.parse(xhr.responseText);
 
+                    if (jsonObject.error.localeCompare("Contact Exists") === 0) {
+                        $("#checkContact").text(`Contact ${addFirstName} ${addLastName} already exists.`);
+                        return;
+                    }
+
                     // notify user of operation success or failure
                     if (jsonObject.error) {
                         toastr.error(`Failed to Add ${addFirstName} ${addLastName} to Contacts List.`);
@@ -70,7 +75,7 @@ function addContact() {
 
 // READ
 
-// search function called on click of the search bar button, 
+// search function called on click of the search bar button,
 // it should take the input and userID and post to the API
 function searchFuntion() {
     // get userID
@@ -91,9 +96,9 @@ function searchFuntion() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader(
-        "Content-type", 
+        "Content-type",
         "application/json; charset=UTF-8"
-     );
+    );
 
     try {
         // let the user know what is happening
@@ -129,14 +134,14 @@ function buildTable(data, numContacts) {
             $('<td>').text(data[i].Email),
             $('<td>').text(phoneNum),
             $('<td>').html(
-                `<button 
-                    type='button' class='btn' data-toggle='modal' 
+                `<button
+                    type='button' class='btn' data-toggle='modal'
                     onclick="deleteContact(
-                        ${data[i].ID}, 
-                        '${data[i].FirstName}', 
+                        ${data[i].ID},
+                        '${data[i].FirstName}',
                         '${data[i].LastName}');">
                     <span style='color: tomato' class='fas fa-trash-alt'></span></button>
-                <button type='button' class='btn' data-toggle='modal' data-target="#editContact" 
+                <button type='button' class='btn' data-toggle='modal' data-target="#editContact"
                     onclick="initEditContact(
                         ${data[i].ID},
                         '${data[i].FirstName}',
@@ -144,7 +149,7 @@ function buildTable(data, numContacts) {
                         '${data[i].Phone}',
                         '${data[i].Email}');">
                     <span style='color: gray' class='fas fa-cog'></span></button>`)
-            ).appendTo(table);
+        ).appendTo(table);
     }
     // update search result count at top of the table
     $('#numResults').text(`${numContacts} matching result${(numContacts > 1 || numContacts === 0) ? "s" : ""}`);
@@ -164,7 +169,7 @@ function initEditContact(editContactID, firstName, lastName, phone, email) {
     $("#editPhoneNumber").val(phone);
     $("#editEmail").val(email);
 
-    // set up edit button to call the accual edit function 
+    // set up edit button to call the accual edit function
     // that validates the email/phone then posts to the API
     $("#editButton").attr("onclick", `editContact("${editContactID}")`);
 
@@ -274,7 +279,9 @@ $(document).ready(function () {
     readCookie();
 
     // welcome the user on page load
-    toastr.info("", `Welcome back ${firstName} !`, {positionClass: "toast-top-center"});
+    toastr.info("", `Welcome back ${firstName} !`, {
+        positionClass: "toast-top-center"
+    });
 
     // allow user to use enter key to submit
     $("#searchBar").on("keyup", function (event) {
