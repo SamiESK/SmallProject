@@ -16,11 +16,11 @@
         $firstName = $row["FirstName"];
         $lastName = $row["LastName"];
         $id = $row["ID"];
-        
+
         returnWithInfo($firstName, $lastName, $id);
     }
     else
     {
-        returnWithError( "No Records Found" );
+        returnWithError("No Records Found");
     }
 ?>

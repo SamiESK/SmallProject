@@ -28,8 +28,7 @@ $(document).ready(function () {
                 username1: "Please enter a valid Username",
                 password1: {
                     required: "Please provide a password",
-                    minlength:
-                        "Your password must be at least 5 characters long",
+                    minlength: "Your password must be at least 5 characters long",
                 },
                 passwordConfirm: {
                     equalTo: "Your passwords do not match",
@@ -46,65 +45,41 @@ $(document).ready(function () {
 
                 $("#signupResult").html("");
 
-                userExists = false;
+                let obj = {
+                    login: login,
+                    password: password,
+                    firstName: firstName,
+                    lastName: lastName,
+                };
+                let jsonPayload = JSON.stringify(obj);
 
-                function checkUser() {
-                    return new Promise(function (resolve, reject) {
-                        $.ajax({
-                            type: "POST",
-                            url: baseURL + "/CheckUser.php",
-                            data: JSON.stringify({
-                                login: $("#username1").val(),
-                            }),
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            success: function (res) {
-                                // If username exists, return ture
-                                resolve(res.exists);
-                            },
-                        });
-                    });
-                }
+                let url = baseURL + "/Signup." + extension;
 
-                checkUser().then(function (data) {
-                    userExists = data;
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", url, true);
+                xhr.setRequestHeader(
+                    "Content-type",
+                    "application/json; charset=UTF-8"
+                );
+                try {
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let jsonObject = JSON.parse(xhr.responseText);
 
-                    if (userExists) {
-                        $("#usernameCheck").html("Username is already taken");
-                        return;
-                    }
-
-                    let obj = {
-                        login: login,
-                        password: password,
-                        firstName: firstName,
-                        lastName: lastName,
-                    };
-                    let jsonPayload = JSON.stringify(obj);
-
-                    let url = baseURL + "/Signup." + extension;
-
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", url, true);
-                    xhr.setRequestHeader(
-                        "Content-type",
-                        "application/json; charset=UTF-8"
-                    );
-                    try {
-                        xhr.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                let jsonObject = JSON.parse(xhr.responseText);
-
-                                userID = jsonObject.id;
-
-                                window.location.href = "index.html";
+                            if (jsonObject.error.localeCompare("Invalid Username") === 0) {
+                                $("#usernameCheck").html("Username is already taken");
+                                return;
                             }
-                        };
-                        xhr.send(jsonPayload);
-                    } catch (err) {
-                        $("#signupResult").html(err.message);
-                    }
-                });
+
+                            userID = jsonObject.id;
+
+                            window.location.href = "index.html";
+                        }
+                    };
+                    xhr.send(jsonPayload);
+                } catch (err) {
+                    $("#signupResult").html(err.message);
+                }
             },
         });
     });
