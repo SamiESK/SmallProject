@@ -6,7 +6,6 @@ var userID = 0;
 var firstName = "";
 var lastName = "";
 
-
 function saveCookie() {
     var minutes = 20;
     var date = new Date();
@@ -45,19 +44,6 @@ function doLogout() {
     window.location.href = "index.html";
 }
 
-function refreshSearchTable(xhr) {
-    try {
-        xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                searchFuntion();
-            }
-        };
-        xhr.send(jsonPayload);
-    } catch (err) {
-        $("#contactsList").html(err.message);
-    }
-}
-
 function validatePhone(str) {
     let clean = str.replace(/\D/g,'');
     let phoneno = /^\d{10}$/;
@@ -69,6 +55,8 @@ function validatePhone(str) {
     }
 }
 
+// got code from here
+// https://stackoverflow.com/questions/8358084/regular-expression-to-reformat-a-us-phone-number-in-javascript
 function formatPhoneNumber(str) {
     let cleaned = ('' + str).replace(/\D/g, '');
     let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
@@ -79,6 +67,7 @@ function formatPhoneNumber(str) {
     return null;
 }
 
+// got regex from emailregex.com
 function validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());

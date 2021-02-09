@@ -10,11 +10,11 @@ const DARK_THEME_PATH = "https://bootswatch.com/4/cyborg/bootstrap.min.css";
 
 const DARK_FIX_PATH = "../css/stylesDark.css";
 
-const DARK_STYLE_LINK = document.getElementById("dark-theme-style");
+const DARK_STYLE_LINK = $("#dark-theme-style");
 
-const DARK_FIX_LINK = document.getElementById("dark-fix-style");
+const DARK_FIX_LINK = $("#dark-fix-style");
 
-const THEME_TOGGLER = document.getElementById("theme-toggler");
+const THEME_TOGGLER = $("#theme-toggler");
 
 let isDark = LOCAL_META_DATA && LOCAL_META_DATA.isDark;
 
@@ -34,12 +34,8 @@ function toggleTheme() {
     isDark = !isDark;
     if (isDark) {
         enableDarkTheme();
-        //$('#searchBar').attr('style', 'color: #ffff');
-        //$('h3.card-header').css('font-size', '1.75rem');
-        //$('h1').css('font-size', '2.5rem');
     } else {
         disableDarkTheme();
-        //$('#searchBar').attr('style', '');
     }
     const META = {
         isDark,
@@ -48,19 +44,19 @@ function toggleTheme() {
 }
 
 function enableDarkTheme() {
-    DARK_STYLE_LINK.setAttribute("href", DARK_THEME_PATH);
-    DARK_FIX_LINK.setAttribute("href", DARK_FIX_PATH);
+    DARK_STYLE_LINK.attr("href", DARK_THEME_PATH);
+    DARK_FIX_LINK.attr("href", DARK_FIX_PATH);
     var page = window.location.pathname.split("/").pop();
     if (page === "main.html") {
-        THEME_TOGGLER.innerHTML = "Light"; //🌞
+        THEME_TOGGLER.html("Light <i class='fas fa-sun'></i>"); // 🌞
     }
 }
 
 function disableDarkTheme() {
-    DARK_STYLE_LINK.setAttribute("href", "");
-    DARK_FIX_LINK.setAttribute("href", "");
+    DARK_STYLE_LINK.attr("href", "");
+    DARK_FIX_LINK.attr("href", "");
     var page = window.location.pathname.split("/").pop();
     if (page === "main.html") {
-        THEME_TOGGLER.innerHTML = "Dark"; // 🌙
+        THEME_TOGGLER.html("Dark <i class='fas fa-moon'></i>"); // 🌙
     }
 }

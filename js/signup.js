@@ -42,12 +42,9 @@ $(document).ready(function () {
                 lastName = $("#lastname").val();
 
                 let login = $("#username1").val();
-                // let password = $("#password1").val();
                 let password = md5($("#password1").val());
 
                 $("#signupResult").html("");
-
-                //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 
                 userExists = false;
 
@@ -62,7 +59,7 @@ $(document).ready(function () {
                             contentType: "application/json; charset=utf-8",
                             dataType: "json",
                             success: function (res) {
-                                // If username exists, set userExists to true
+                                // If username exists, return ture
                                 resolve(res.exists);
                             },
                         });
