@@ -128,11 +128,11 @@ function buildTable(data, numContacts) {
     for (var i = 0; i < numContacts; i++) {
         phoneNum = formatPhoneNumber(data[i].Phone);
 
-        $('<tr>').append(
-            $('<td>').text(data[i].FirstName),
-            $('<td>').text(data[i].LastName),
-            $('<td>').text(data[i].Email),
-            $('<td>').text(phoneNum),
+        $('<tr>').attr('role', 'row').append(
+            $('<td>').text(data[i].FirstName).attr('role', 'cell'),
+            $('<td>').text(data[i].LastName).attr('role', 'cell'),
+            $('<td>').text(data[i].Email).attr('role', 'cell'),
+            $('<td>').text(phoneNum).attr('role', 'cell'),
             $('<td>').html(
                 `<button
                     type='button' class='btn' data-toggle='modal'
@@ -148,7 +148,7 @@ function buildTable(data, numContacts) {
                         '${data[i].LastName}',
                         '${data[i].Phone}',
                         '${data[i].Email}');">
-                    <span style='color: gray' class='fas fa-cog'></span></button>`)
+                    <span style='color: gray' class='fas fa-cog'></span></button>`).attr('role', 'cell')
         ).appendTo(table);
     }
     // update search result count at top of the table
