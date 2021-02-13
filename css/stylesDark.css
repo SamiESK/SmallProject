@@ -148,7 +148,7 @@ form .error {
     color: #ffff;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 780px) {
     td {
         border: none;
         border-bottom: 1px solid rgb(65, 64, 64);

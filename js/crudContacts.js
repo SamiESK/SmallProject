@@ -166,7 +166,7 @@ function initEditContact(editContactID, firstName, lastName, phone, email) {
     // fill with current values
     $("#editFirstName").val(firstName);
     $("#editLastName").val(lastName);
-    $("#editPhoneNumber").val(phone);
+    $("#editPhoneNumber").val(formatPhoneNumber(phone));
     $("#editEmail").val(email);
 
     // set up edit button to call the accual edit function

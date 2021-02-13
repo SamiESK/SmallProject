@@ -15,7 +15,7 @@ $(document).ready(function () {
                 },
                 password1: {
                     required: true,
-                    minlength: 5,
+                    minlength: 8,
                 },
                 passwordConfirm: {
                     equalTo: "#password1",
@@ -23,12 +23,12 @@ $(document).ready(function () {
             },
 
             messages: {
-                firstname: "Please enter your first Name",
-                lastname: "Please enter your last Name",
+                firstname: "Please enter your First Name",
+                lastname: "Please enter your Last Name",
                 username1: "Please enter a valid Username",
                 password1: {
                     required: "Please provide a password",
-                    minlength: "Your password must be at least 5 characters long",
+                    minlength: "Your password must be at least 8 characters long",
                 },
                 passwordConfirm: {
                     equalTo: "Your passwords do not match",

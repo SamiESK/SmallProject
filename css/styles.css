@@ -121,3 +121,7 @@ form .error {
 .searchInner {
     padding-bottom: 10rem;
 }
+
+#searchBar {
+    margin-left: 0.2em;
+}
