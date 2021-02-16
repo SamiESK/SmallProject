@@ -109,8 +109,16 @@ function searchFuntion() {
 
                 let jsonObject = JSON.parse(xhr.responseText);
 
+                $('#contactsTable').DataTable().destroy();
+
                 // build the table for the contacts
                 buildTable(jsonObject.contacts, jsonObject.contacts.length);
+
+                $('#contactsTable').DataTable({
+                    "retrieve": true,
+                    "pagingType": "simple_numbers", // "simple" option for 'Previous' and 'Next' buttons only
+                    "searching" : false
+                });
             }
         };
         xhr.send(jsonPayload);
@@ -122,7 +130,7 @@ function searchFuntion() {
 
 // build contacts table in html using the data array
 function buildTable(data, numContacts) {
-    table = $('#contactsTable');
+    table = $('#contactsTableBody');
     table.html('');
 
     for (var i = 0; i < numContacts; i++) {
@@ -151,6 +159,7 @@ function buildTable(data, numContacts) {
                     <span style='color: gray' class='fas fa-cog'></span></button>`).attr('role', 'cell')
         ).appendTo(table);
     }
+
     // update search result count at top of the table
     $('#numResults').text(`${numContacts} matching result${(numContacts > 1 || numContacts === 0) ? "s" : ""}`);
 
@@ -281,6 +290,27 @@ $(document).ready(function () {
     // welcome the user on page load
     toastr.info("", `Welcome back ${firstName} !`, {
         positionClass: "toast-top-center"
+    });
+
+    $("#cancelAdd").on("click", function (event) {
+        $('#addContact').modal("toggle");
+        // clears form after submission
+        $('#addForm').each(function () {
+            this.reset();
+        });
+    });
+
+    $("#cancelEdit").on("click", function (event) {
+        $('#editContact').modal("toggle");
+        // clears form after submission
+        $('#editForm').each(function () {
+            this.reset();
+        });
+    });
+
+    // allow user to use enter key to submit
+    $("#searchBtn").on("click", function (event) {
+        searchFuntion();
     });
 
     // allow user to use enter key to submit

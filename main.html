@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -29,6 +29,8 @@
 
     <link href="css/table.css" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
     <link href="css/styles.css" rel="stylesheet" />
 
     <link id="dark-theme-style" rel="stylesheet" />
@@ -37,6 +39,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/toastr.js"></script>
@@ -52,7 +55,7 @@
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="button" onclick="doLogout();">Logout</button>
                     <span>&nbsp;</span>
-                    <a href="javascript:void(0)" class="btn btn-outline-dark ml-auto font-weight-bold"
+                    <a href="javascript:void(0)" class="btn btn-outline-dark ml-auto"
                         id="theme-toggler" onclick="toggleTheme()"></a>
                 </form>
             </div>
@@ -85,6 +88,8 @@
                                         <div class="col text-center">
                                             <button id="addButton" type="button" class="btn btn-primary"
                                                 onclick="addContact();">Add</button>
+                                            <button id="cancelAdd" type="button" class="btn btn-primary"
+                                                >Cancel</button>
                                         </div>
                                     </div>
                                 </form>
@@ -120,6 +125,8 @@
                                     <div class="modal-footer">
                                         <div class="col text-center">
                                             <button type="button" id="editButton" class="btn btn-primary">Edit</button>
+                                            <button id="cancelEdit" type="button" class="btn btn-primary"
+                                                >Cancel</button>
                                         </div>
                                     </div>
                                 </form>
@@ -168,8 +175,8 @@
                             <input id="searchBar" class="form-control border-0 bg-light" type="search"
                                 placeholder="Who are you looking for?" aria-label="Search">
                             <div class="input-group-append">
-                                <button type="button" id="searchBtn" class="btn btn-link text-primary"
-                                    onclick="searchFuntion();"><i class="fa fa-search"></i></button>
+                                <button type="button" id="searchBtn" class="btn btn-link text-primary"><i
+                                        class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
@@ -181,12 +188,13 @@
         <!-- table / header / box for table -->
         <div id="contact" class="container" style="height: 80%">
             <div class="card bg-default mt-5">
-                <h3 class="card-header bg-light"><span id="tableHeader">My Contacts <h6 id="numResults" class="text-muted"></h6></span>
+                <h3 class="card-header bg-light"><span id="tableHeader">My Contacts <h6 id="numResults"
+                            class="text-muted"></h6></span>
                     <button id="headerbutton" class="btn" data-toggle="modal" data-target="#addContact"
                         style="height: 40px; margin-bottom: 20px;"><span style="color: Dodgerblue;"
                             class="fas fa-plus-circle fa-lg"></span></button></h3>
                 <div class="card-body">
-                    <table class="table table-default table striped table-hover">
+                    <table id="contactsTable" class="table table-default table striped table-hover">
                         <thead>
                             <tr>
                                 <!-- <th scope="col">ID</th> -->
@@ -197,7 +205,7 @@
                                 <th scope="col">Actions </th>
                             </tr>
                         </thead>
-                        <tbody id="contactsTable">
+                        <tbody id="contactsTableBody">
                         </tbody>
                     </table>
                 </div>
